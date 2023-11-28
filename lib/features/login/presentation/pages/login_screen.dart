@@ -21,18 +21,18 @@ class LoginScreen extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginStates>(listener: (context, state) {
       if (state is LoginSuccessState) {
         Navigator.pop(context);
+        // For saving token for future use
         CacheHelper.saveData(key: "UserToken", value: state.loginEntity.accessToken);
 
         Navigator.pushNamedAndRemoveUntil(
             context,
             Routes.home,
-            arguments: state.loginEntity,
             (route) => false);
       } else if (state is LoginLoadingState) {
         showDialog(
           context: context,
           builder: (context) => const AlertDialog(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.white,
             title: Center(
                 child: CircularProgressIndicator(
                     color: AppColors.secondry,
@@ -40,11 +40,12 @@ class LoginScreen extends StatelessWidget {
           ),
         );
       } else if (state is LoginErrorState) {
+        Navigator.pop(context);
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
             title: const Text(AppStrings.error),
-            content: Text(state.failures.message),
+            content: Text("${state.failures.message.substring(0,100)}..."),
           ),
         );
       }
