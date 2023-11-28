@@ -22,6 +22,10 @@ dependencies:
   bloc: ^8.1.2
   flutter_bloc: ^8.1.3
   google_fonts: ^5.1.0
+  dartz: ^0.10.1
+  equatable: ^2.0.5
+  flutter_screenutil: ^5.8.4
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +43,20 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/
+    - assets/images/google.png
+    - assets/images/apple.png
+    - assets/images/facebook.png
+  fonts:
+    - family: CircularStd
+      fonts:
+        - asset: assets/fonts/Circular-Std-Book.ttf
+    - family: CircularStdB
+      fonts:
+        - asset: assets/fonts/circular-std-medium-500.ttf
+
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
