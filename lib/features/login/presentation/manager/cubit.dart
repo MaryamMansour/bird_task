@@ -20,9 +20,6 @@ class LoginCubit extends Cubit<LoginStates> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
-  // void toggleCheckbox() {
-  //   emit(LoginInitState(isCheckboxChecked: !state.isCheckboxChecked));
-  // }
   void login() async{
     emit(LoginLoadingState());
     LoginDomainRepo signUpDomainRepo = LoginDataRepo(sources);
